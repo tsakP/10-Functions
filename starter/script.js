@@ -205,8 +205,8 @@ const addTAXrate = function(rate) {
   }
 }
 
-const addVAT2 = addTAXch(0.23);
-addVATch(100);
+const addVAT2 = addTAXrate(0.23);
+addVAT2(100);
 
 const addVAT2Arrow = rate => value => console.log(value + value * rate);
 addVAT2Arrow(0.23)(23);
