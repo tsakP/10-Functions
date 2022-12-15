@@ -288,7 +288,7 @@ displayResults.call({ answers: data2});  */
 ////////////////////////////////////////////////////////////////////////
 // IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)
 
-const runOnce = function() {
+/* const runOnce = function() {
   console.log('This will never run again');
 };
 runOnce();
@@ -299,5 +299,31 @@ runOnce();
 })();
 
 // IIFE arrow
-(() => console.log('This will ALSO never run again'))();
+(() => console.log('This will ALSO never run again'))(); */
 
+////////////////////////////////////////////////////////////////////////
+// CLOSURES
+
+//* A function has access to the variable envirnment (VE) of the execution context in which it was created
+//* Closure: Variable Environment (VE) attached to the function, exactly as it was at the time and place the function was created
+//* Formal: A closure is the closed-over VE of the execution context in which a function was created, even after that execution context is gone
+//* Less Formal: A closure gives a fuction access to all the variables of its parent function, even after that parent function has returned. The function keeps a reference to its outer scope, which preserves the scope chain throughout time.
+//* Even less formal: A closure makes sure that a function doesn't loose connection to variables that existed at the function's birth place;
+//* Extremely unformal: A closure is like a backpack that a function carries around wherever it goes. This backpack has all the variables that were present in the environment where the function was created.
+
+const secureBooking = function() {
+  let passengerCount = 0;
+
+  return function() {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  }
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
