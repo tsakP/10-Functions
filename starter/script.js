@@ -111,7 +111,7 @@ const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 
 greetArr('Yo')('Petran'); */
 // *********************************************************
-
+/* 
 // The call and apply Methods
 
 const lufthansa = {
@@ -252,7 +252,7 @@ Test data for bonus:
 Hints: Use many of the tools you learned about in this and the last section �
 */
 
-const poll = {
+/* const poll = {
  question: "What is your favourite programming language?",
  options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
  // This generates [0, 0, 0, 0]. More in the next section!
@@ -282,4 +282,22 @@ const data2 = [1, 5, 3, 9, 6, 1]
 const displayResults = poll.displayResults;
 
 displayResults.call({ answers: data1}, 'string');
-displayResults.call({ answers: data2});
+displayResults.call({ answers: data2});  */
+
+
+////////////////////////////////////////////////////////////////////////
+// IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)
+
+const runOnce = function() {
+  console.log('This will never run again');
+};
+runOnce();
+
+// IIFE
+(function() {
+  console.log('This will never run again');
+})();
+
+// IIFE arrow
+(() => console.log('This will ALSO never run again'))();
+
